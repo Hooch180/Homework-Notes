@@ -7,6 +7,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "requests", "requests", "{1A6AC493-BB7C-4B59-A72F-C7F6E9A0C8DA}"
 	ProjectSection(SolutionItems) = preProject
 		requests\notes.http = requests\notes.http
+		requests\http-client.env.json = requests\http-client.env.json
 	EndProjectSection
 EndProject
 Global
