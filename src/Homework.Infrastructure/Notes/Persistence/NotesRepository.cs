@@ -1,32 +1,43 @@
 ﻿using Homework.Application.Common.Interfaces.Repositories;
+using Homework.Infrastructure.Common.Persistence;
+using Microsoft.EntityFrameworkCore;
 using Notes.Domain.Notes;
 
 namespace Homework.Infrastructure.Notes.Persistence;
 
 public class NotesRepository : INotesRepository
 {
+    private readonly HomeworkDbContext _db;
+
+    public NotesRepository(HomeworkDbContext dbContext)
+    {
+        _db = dbContext;
+    }
+
     public Task<Note?> GetByIdAsync(Guid id)
     {
-        throw new NotImplementedException();
+        return _db.Notes.FirstOrDefaultAsync(note => note.Id == id);
     }
 
-    public Task<IList<Note>> ListAsync()
+    public async Task<List<Note>> ListAsync()
     {
-        throw new NotImplementedException();
+        return await _db.Notes.ToListAsync();
     }
 
-    public Task AddNoteAsync(Note note)
+    public async Task AddAsync(Note note)
     {
-        throw new NotImplementedException();
+        await _db.Notes.AddAsync(note);
     }
 
-    public Task UpdateNoteAsync(Note note)
+    public Task UpdateAsync(Note note)
     {
-        throw new NotImplementedException();
+        _db.Notes.Update(note);
+        return Task.CompletedTask;
     }
 
-    public Task RemoveNoteAsync(Note note)
+    public Task RemoveAsync(Note note)
     {
-        throw new NotImplementedException();
+        _db.Notes.Remove(note);
+        return Task.CompletedTask;
     }
 }

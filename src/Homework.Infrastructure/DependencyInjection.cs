@@ -1,4 +1,5 @@
-﻿using Homework.Application.Common.Interfaces.Repositories;
+﻿using Homework.Application.Common.Interfaces;
+using Homework.Application.Common.Interfaces.Repositories;
 using Homework.Infrastructure.Common.Persistence;
 using Homework.Infrastructure.Notes.Persistence;
 using Microsoft.EntityFrameworkCore;
@@ -18,6 +19,8 @@ public static class DependencyInjection
     {
         services.AddDbContext<HomeworkDbContext>(options =>
             options.UseInMemoryDatabase("HomeworkDb"));
+        
+        services.AddScoped<IUnitOfWork>(provider => provider.GetRequiredService<HomeworkDbContext>());
         
         services.AddScoped<INotesRepository, NotesRepository>();
         
