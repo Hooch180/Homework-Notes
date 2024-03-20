@@ -1,4 +1,4 @@
-@noteId = e0b6a206-8739-4639-9a2c-26a8d795012d
+@noteId = 00000000-0000-0000-0000-000000000000
 
 ### Get Hello, World!
 GET {{baseUrl}}/notes/hello
@@ -10,6 +10,11 @@ Content-Type: application/json
 {
     "content": "Test Note"
 }
+
+> {%
+client.global.set("noteId", response.body.id);
+client.log("Saved {{noteId}} as: " + response.body.id);
+%}
 
 ### Get Note by Id
 GET {{baseUrl}}/notes/{{noteId}}
