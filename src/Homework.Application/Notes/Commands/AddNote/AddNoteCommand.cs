@@ -2,7 +2,4 @@
 
 namespace Homework.Application.Notes.Commands.AddNote;
 
-public record AddNoteCommand : IRequest
-{
-    public string Content { get; init; }
-}
+public record AddNoteCommand(string Content) : IRequest<AddNoteCommandResult>;

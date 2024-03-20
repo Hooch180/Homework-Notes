@@ -5,7 +5,7 @@ using Notes.Domain.Notes;
 
 namespace Homework.Application.Notes.Commands.AddNote;
 
-public class AddNoteCommandHandler : IRequestHandler<AddNoteCommand>
+public class AddNoteCommandHandler : IRequestHandler<AddNoteCommand, AddNoteCommandResult>
 {
     private readonly INotesRepository _notesRepository;
     private readonly IUnitOfWork _unitOfWork;
@@ -18,7 +18,7 @@ public class AddNoteCommandHandler : IRequestHandler<AddNoteCommand>
         _unitOfWork = unitOfWork;
     }
     
-    public async Task Handle(AddNoteCommand request, CancellationToken cancellationToken)
+    public async Task<AddNoteCommandResult> Handle(AddNoteCommand request, CancellationToken cancellationToken)
     {
         var note = new Note
         {
@@ -28,5 +28,7 @@ public class AddNoteCommandHandler : IRequestHandler<AddNoteCommand>
 
         await _notesRepository.AddAsync(note);
         await _unitOfWork.CommitChangesAsync();
+        
+        return new AddNoteCommandResult(note.Id);
     }
 }
