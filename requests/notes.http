@@ -1,7 +1,7 @@
 @noteId = e0b6a206-8739-4639-9a2c-26a8d795012d
 
 ### Get Hello, World!
-GET {{baseUrl}}/notes
+GET {{baseUrl}}/notes/hello
 
 ### Get Note by Id
 GET {{baseUrl}}/notes/{{noteId}}
