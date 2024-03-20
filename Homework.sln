@@ -14,6 +14,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.Contracts", "src\H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.Domain", "src\Homework.Domain\Homework.Domain.csproj", "{A5E00FCC-F995-4F85-A516-0A5EC5446446}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.Infrastructure", "src\Homework.Infrastructure\Homework.Infrastructure.csproj", "{045F33C1-D2D7-440D-8B48-248A30DA5B88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.Application", "src\Homework.Application\Homework.Application.csproj", "{48A811C2-A61F-474B-BDB2-F688789BBF47}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -32,10 +36,20 @@ Global
 		{A5E00FCC-F995-4F85-A516-0A5EC5446446}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A5E00FCC-F995-4F85-A516-0A5EC5446446}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A5E00FCC-F995-4F85-A516-0A5EC5446446}.Release|Any CPU.Build.0 = Release|Any CPU
+		{045F33C1-D2D7-440D-8B48-248A30DA5B88}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{045F33C1-D2D7-440D-8B48-248A30DA5B88}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{045F33C1-D2D7-440D-8B48-248A30DA5B88}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{045F33C1-D2D7-440D-8B48-248A30DA5B88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48A811C2-A61F-474B-BDB2-F688789BBF47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48A811C2-A61F-474B-BDB2-F688789BBF47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48A811C2-A61F-474B-BDB2-F688789BBF47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48A811C2-A61F-474B-BDB2-F688789BBF47}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{06B5AD32-EEE6-4B6E-B04B-3BF5E1B19008} = {1B930BC5-B1F0-4D1E-817D-66608F384B5E}
 		{677548DC-E7DC-4C4C-9600-E9D3D4D8C26B} = {1B930BC5-B1F0-4D1E-817D-66608F384B5E}
 		{A5E00FCC-F995-4F85-A516-0A5EC5446446} = {1B930BC5-B1F0-4D1E-817D-66608F384B5E}
+		{045F33C1-D2D7-440D-8B48-248A30DA5B88} = {1B930BC5-B1F0-4D1E-817D-66608F384B5E}
+		{48A811C2-A61F-474B-BDB2-F688789BBF47} = {1B930BC5-B1F0-4D1E-817D-66608F384B5E}
 	EndGlobalSection
 EndGlobal
