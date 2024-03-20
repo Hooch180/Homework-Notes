@@ -24,5 +24,8 @@ Content-Type: application/json
     "content": "Updated Test Note"
 }
 
+### Delete Note
+DELETE {{baseUrl}}/notes/{{noteId}}
+
 ### Get Note by Id
 GET {{baseUrl}}/notes/{{noteId}}

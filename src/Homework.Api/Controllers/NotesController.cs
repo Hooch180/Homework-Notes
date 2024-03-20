@@ -1,4 +1,5 @@
 ﻿using Homework.Application.Notes.Commands.AddNote;
+using Homework.Application.Notes.Commands.DeleteNote;
 using Homework.Application.Notes.Commands.UpdateNote;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -53,6 +54,16 @@ public class NotesController : ControllerBase
         var command = new UpdateNoteCommand(noteId, request.Content);
         await _sender.Send(command);
         
+        return Ok();
+    }
+    
+    [HttpDelete("{noteId:guid}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> DeleteNote(Guid noteId)
+    {
+        var command = new DeleteNoteCommand(noteId);
+        await _sender.Send(command);
         return Ok();
     }
 }
