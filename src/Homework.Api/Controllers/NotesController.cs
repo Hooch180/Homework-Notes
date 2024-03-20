@@ -1,6 +1,7 @@
 ﻿using Homework.Application.Notes.Commands.AddNote;
 using Homework.Application.Notes.Commands.DeleteNote;
 using Homework.Application.Notes.Commands.UpdateNote;
+using Homework.Application.Notes.Queries.ListNotes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Notes.Contracts.Notes;
@@ -16,6 +17,22 @@ public class NotesController : ControllerBase
     public NotesController(ISender sender)
     {
         _sender = sender;
+    }
+    
+    [HttpGet]
+    [ProducesResponseType<ListNotesResponse>(StatusCodes.Status200OK)]
+    public async Task<IActionResult> ListNotes()
+    {
+        var query = new ListNotesQuery();
+        var result = await _sender.Send(query);
+        
+        var notesDto = result
+            .Notes
+            .Select(note => new ListNotesResponse.Note(note.Id, note.Content))
+            .ToList();
+        var response = new ListNotesResponse(notesDto);
+        
+        return Ok(response);
     }
     
     [HttpGet("{noteId:guid}")]

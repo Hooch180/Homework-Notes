@@ -1,8 +1,5 @@
 @noteId = 00000000-0000-0000-0000-000000000000
 
-### Get Hello, World!
-GET {{baseUrl}}/notes/hello
-
 ### Add Note
 POST {{baseUrl}}/notes
 Content-Type: application/json
@@ -29,3 +26,6 @@ DELETE {{baseUrl}}/notes/{{noteId}}
 
 ### Get Note by Id
 GET {{baseUrl}}/notes/{{noteId}}
+
+### List Notes
+GET {{baseUrl}}/notes
