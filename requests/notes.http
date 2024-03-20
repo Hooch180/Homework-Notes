@@ -16,5 +16,13 @@ client.global.set("noteId", response.body.id);
 client.log("Saved {{noteId}} as: " + response.body.id);
 %}
 
+### Update Note
+PUT {{baseUrl}}/notes/{{noteId}}
+Content-Type: application/json
+
+{
+    "content": "Updated Test Note"
+}
+
 ### Get Note by Id
 GET {{baseUrl}}/notes/{{noteId}}

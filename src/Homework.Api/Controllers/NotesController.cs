@@ -1,4 +1,5 @@
 ﻿using Homework.Application.Notes.Commands.AddNote;
+using Homework.Application.Notes.Commands.UpdateNote;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Notes.Contracts.Notes;
@@ -38,9 +39,20 @@ public class NotesController : ControllerBase
     public async Task<IActionResult> AddNote(AddNoteRequest request)
     {
         var command = new AddNoteCommand(request.Content);
-        var result = await _sender.Send<AddNoteCommandResult>(command);
+        var result = await _sender.Send(command);
         var response = new AddNoteResponse(result.Id);
         
         return Ok(response);
+    }
+    
+    [HttpPut("{noteId:guid}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> UpdateNote(Guid noteId, [FromBody]UpdateNoteRequest request)
+    {
+        var command = new UpdateNoteCommand(noteId, request.Content);
+        await _sender.Send(command);
+        
+        return Ok();
     }
 }
