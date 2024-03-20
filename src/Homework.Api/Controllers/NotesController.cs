@@ -17,13 +17,6 @@ public class NotesController : ControllerBase
     {
         _sender = sender;
     }
-
-    [HttpGet("hello")]
-    [ProducesResponseType<string>(StatusCodes.Status200OK)]
-    public async Task<IActionResult> GetHelloWorld()
-    {
-        return Ok("Hello, World!");
-    }
     
     [HttpGet("{noteId:guid}")]
     [ProducesResponseType<GetNoteResponse>(StatusCodes.Status200OK)]
