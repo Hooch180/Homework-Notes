@@ -8,6 +8,10 @@ https://dotnet.microsoft.com/en-us/download/dotnet/8.0
    ```PS C:\GitPrivate\Homework-Notes\src\Homework.Api> dotnet run --environment Development --launch-profile https```
 3. Run command: ```dotnet run --environment Development --launch-profile https```
 
+## Easy run (Windows)
+1. Run ```run.cmd``` script. It will build and run application
+
+## Open Swagger
 The application will start, and you will be greeted with a message saying which ports the application listens to for HTTP and HTTPS traffic.  
 Example: ```https://localhost:7100``` or ```http://localhost:5172```
 
