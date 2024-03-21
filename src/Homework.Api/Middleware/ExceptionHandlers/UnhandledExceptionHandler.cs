@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,6 +15,7 @@ public class UnhandledExceptionHandler : IExceptionHandler
     
     public async ValueTask<bool> TryHandleAsync(HttpContext httpContext, Exception exception, CancellationToken cancellationToken)
     {
+        exception.Demystify();
         _logger.LogError(exception, "Exception occurred: {Message}", exception.Message);
         
         var problemDetails = new ProblemDetails

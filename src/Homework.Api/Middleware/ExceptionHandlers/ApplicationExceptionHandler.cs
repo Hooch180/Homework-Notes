@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using ApplicationException = Homework.Application.Common.Exceptions.ApplicationException;
@@ -20,6 +21,7 @@ public class ApplicationExceptionHandler : IExceptionHandler
             return false;
         }
 
+        ex.Demystify();
         _logger.LogError(ex, "Exception occurred: {Message}", ex.Message);
         
         var problemDetails = new ProblemDetails

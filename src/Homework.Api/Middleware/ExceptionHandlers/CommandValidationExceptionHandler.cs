@@ -1,3 +1,4 @@
+using System.Diagnostics;
 using Homework.Application.Common.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
@@ -20,6 +21,7 @@ public class CommandValidationExceptionHandler : IExceptionHandler
             return false;
         }
 
+        ex.Demystify();
         _logger.LogError(ex, "Exception occurred: {Message}", ex.Message);
         
         var problemDetails = new ProblemDetails
