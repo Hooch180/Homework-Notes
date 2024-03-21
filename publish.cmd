@@ -1,0 +1,1 @@
+dotnet publish .\src\Homework.Api\Homework.Api.csproj -c Release -o .\publish

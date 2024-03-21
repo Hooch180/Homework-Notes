@@ -1,0 +1,1 @@
+dotnet build .\src\Homework.Api\Homework.Api.csproj -c Release

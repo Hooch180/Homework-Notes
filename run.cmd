@@ -1,0 +1,1 @@
+dotnet run --project .\src\Homework.Api\Homework.Api.csproj --environment Development --launch-profile https
