@@ -22,7 +22,7 @@ public class ListNotesQueryHandler : IRequestHandler<ListNotesQuery, ListNotesQu
             PageSize = request.PageSize,
             CurrentPageNumber= request.PageNumber,
             TotalEntries = totalCount,
-            MaxPageNumber = (int)Math.Ceiling((double)totalCount / request.PageSize)
+            MaxPageNumber = totalCount == 0 ? 1 : (int)Math.Ceiling((double)totalCount / request.PageSize)
         };
     }
 }
