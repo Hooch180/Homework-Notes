@@ -20,7 +20,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.Application", "src
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{BF0B7BEA-7C58-47C7-BE11-F2FD6C9D420C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.Application.Tests", "Homework.Application.Tests\Homework.Application.Tests.csproj", "{AEDC216F-3866-4BB2-8FC9-8FC8DC32E7B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Homework.Application.Tests", "tests\Homework.Application.Tests\Homework.Application.Tests.csproj", "{AEDC216F-3866-4BB2-8FC9-8FC8DC32E7B3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
