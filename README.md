@@ -22,3 +22,8 @@ Here is list of endpoints:
 - ```DELETE``` ```/notes/{noteId}```- Deletes note with given noteId
 - ```GET``` ```/notes/{noteId}``` - Retrieves note with given noteId
 - ```GET``` ```/notes/{pageNumber}/{pageSize}``` - Retrieves paginated list of notes
+
+# Notes
+- Unit tests were omitted so as not to spend an unnecessary amount of time on simple task.
+- This project could be written as a small, one project with few files as "Minimal API", but I wanted to demonstrate an understanding of design patterns and software architecture.
+- If those were the only and closed requirements for simple service, I would instead write a small, easily maintainable project. No need to overcomplicate simple (and closed) projects.
