@@ -13,10 +13,10 @@ namespace Homework.Application.Tests.Notes;
 [TestFixture]
 public class AddNoteCommandHandlerTests
 {
-    private IFixture _fixture;
-    private INotesRepository _notesRepository;
-    private IUnitOfWork _unitOfWork;
-    private AddNoteCommandHandler _sut;
+    private IFixture _fixture = null!;
+    private INotesRepository _notesRepository = null!;
+    private IUnitOfWork _unitOfWork = null!;
+    private AddNoteCommandHandler _sut = null!;
     
     [SetUp]
     public void SetUp()

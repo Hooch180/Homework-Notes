@@ -13,9 +13,9 @@ namespace Homework.Application.Tests.Notes;
 [TestFixture]
 public class GetNoteQueryHandlerTests
 {
-    private IFixture _fixture;
-    private INotesRepository _notesRepository;
-    private GetNoteQueryHandler _sut;
+    private IFixture _fixture = null!;
+    private INotesRepository _notesRepository = null!;
+    private GetNoteQueryHandler _sut = null!;
 
     [SetUp]
     public void SetUp()

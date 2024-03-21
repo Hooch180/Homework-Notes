@@ -15,10 +15,10 @@ namespace Homework.Application.Tests.Common.Behaviours;
 [TestFixture]
 public class ValidationBehaviourTests
 {
-    private IFixture _fixutre;
-    private IValidator<AddNoteCommand> _validator;
-    private RequestHandlerDelegate<AddNoteCommandResult> _nextBehavior;
-    private ValidationBehavior<AddNoteCommand, AddNoteCommandResult> _sut;
+    private IFixture _fixutre = null!;
+    private IValidator<AddNoteCommand> _validator = null!;
+    private RequestHandlerDelegate<AddNoteCommandResult> _nextBehavior = null!;
+    private ValidationBehavior<AddNoteCommand, AddNoteCommandResult> _sut = null!;
 
     [SetUp]
     public void SetUp()

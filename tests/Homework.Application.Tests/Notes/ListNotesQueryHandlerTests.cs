@@ -12,9 +12,9 @@ namespace Homework.Application.Tests.Notes;
 [TestFixture]
 public class ListNotesQueryHandlerTests
 {
-    private IFixture _fixture;
-    private INotesRepository _notesRepository;
-    private ListNotesQueryHandler _sut;
+    private IFixture _fixture = null!;
+    private INotesRepository _notesRepository = null!;
+    private ListNotesQueryHandler _sut = null!;
     
     [SetUp]
     public void SetUp()
