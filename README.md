@@ -7,7 +7,7 @@ https://dotnet.microsoft.com/en-us/download/dotnet/8.0
 2. Run command: "dotnet run --environment Development --launch-profile https"
 
 The application will start, and you will be greeted with a message saying which ports the application listens to for HTTP and HTTPS traffic.  
-Example: "https://localhost:7100"
+Example: "https://localhost:7100" or "http://localhost:5172"
 
 Copy this URL and add "/swagger" at the end if you want to use that. For that you need to have "--environment Development" specified.  
-Example: "https://localhost:7100/swagger"
+Example: "https://localhost:7100/swagger" or "http://localhost:5172/swagger"
