@@ -1,6 +1,3 @@
 ﻿namespace Notes.Contracts.Notes;
 
-public record ListNotesResponse(ICollection<ListNotesResponse.Note> Notes)
-{
-    public record Note(Guid Id, string Content);
-}
+public record ListNotesResponse(ICollection<Note> Notes);

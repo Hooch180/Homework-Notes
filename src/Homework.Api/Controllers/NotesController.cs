@@ -28,7 +28,7 @@ public class NotesController : ControllerBase
         
         var notesDto = result
             .Notes
-            .Select(note => new ListNotesResponse.Note(note.Id, note.Content))
+            .Select(note => new Note(note.Id, note.Content))
             .ToList();
         var response = new ListNotesResponse(notesDto);
         
