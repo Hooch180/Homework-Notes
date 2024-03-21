@@ -8,7 +8,7 @@ public class UpdateNoteCommandValidator : AbstractValidator<AddNoteCommand>
     public UpdateNoteCommandValidator()
     {
         RuleFor(c => c.Content)
-            .MaximumLength(3)
+            .MaximumLength(1000)
             .WithErrorCode(AddNoteCommandErrorCode.ContentTooLong.Name);
     }
 }
