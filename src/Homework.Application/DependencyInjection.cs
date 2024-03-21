@@ -1,4 +1,6 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using FluentValidation;
+using Homework.Application.Common.Behaviours;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace Homework.Application;
 
@@ -9,10 +11,10 @@ public static class DependencyInjection
         services.AddMediatR(options =>
         {
             options.RegisterServicesFromAssemblyContaining(typeof(DependencyInjection));
-            // TODO: Add validation behavior
+            options.AddOpenBehavior(typeof(ValidationBehavior<,>));
         });
         
-        // TODO: Register validators
+        services.AddValidatorsFromAssemblyContaining(typeof(DependencyInjection));
         
         return services;
     }

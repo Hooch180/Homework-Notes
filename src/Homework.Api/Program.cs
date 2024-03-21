@@ -12,6 +12,7 @@ builder.Services
 // App
 var app = builder.Build();
 app.UseExceptionHandler();
+app.UseStatusCodePages();
 
 if (app.Environment.IsDevelopment())
 {
@@ -19,6 +20,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseHsts();
 app.UseHttpsRedirection();
 app.UseRouting();
 app.MapControllers();

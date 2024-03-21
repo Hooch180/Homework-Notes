@@ -26,7 +26,6 @@ public class NotesController : ControllerBase
     {
         var query = new ListNotesQuery();
         var result = await _sender.Send(query);
-        
         var notesDto = result
             .Notes
             .Select(note => new Note(note.Id, note.Content))
