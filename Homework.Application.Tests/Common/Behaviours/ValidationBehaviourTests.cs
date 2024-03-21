@@ -58,7 +58,7 @@ public class ValidationBehaviourTests
         var response = _fixutre.Create<AddNoteCommandResult>();
         var validationResult = new ValidationResult(new List<ValidationFailure>
         {
-            new ValidationFailure("foo", "bad foo")
+            new ("foo", "bad foo")
         });
         
         _nextBehavior.Invoke().Returns(response);
@@ -71,5 +71,36 @@ public class ValidationBehaviourTests
         
         // Assert
         await act.Should().ThrowAsync<CommandValidationException>();
+    }
+
+    [Test]
+    public async Task WhenValidationFails_CommandValidationException_HoldErrors()
+    {
+        // Arrange
+        var request = _fixutre.Create<AddNoteCommand>();
+        var response = _fixutre.Create<AddNoteCommandResult>();
+        var validationResult = new ValidationResult(new List<ValidationFailure>
+        {
+            new ("foo", "bad foo"){ErrorCode = "ERROR_A"},
+            new ("bar", "bad bar"){ErrorCode = "ERROR_B"}
+        });
+        
+        _nextBehavior.Invoke().Returns(response);
+        _validator
+            .ValidateAsync(request, Arg.Any<CancellationToken>())
+            .Returns(validationResult);
+        
+        // Act
+        var act = () => _sut.Handle(request, _nextBehavior, default);
+        
+        // Assert
+        (await act.Should().ThrowAsync<CommandValidationException>())
+            .And.Errors
+            .Should()
+            .BeEquivalentTo(new[]
+            {
+                new CommandValidationException.Error("foo", "bad foo", "ERROR_A"),
+                new CommandValidationException.Error("bar", "bad bar", "ERROR_B")
+            });
     }
 }
