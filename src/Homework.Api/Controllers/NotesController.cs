@@ -1,6 +1,7 @@
 ﻿using Homework.Application.Notes.Commands.AddNote;
 using Homework.Application.Notes.Commands.DeleteNote;
 using Homework.Application.Notes.Commands.UpdateNote;
+using Homework.Application.Notes.Queries.GetNote;
 using Homework.Application.Notes.Queries.ListNotes;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -40,8 +41,11 @@ public class NotesController : ControllerBase
     [ProducesResponseType(StatusCodes.Status404NotFound)]
     public async Task<IActionResult> GetNote(Guid noteId)
     {
-        throw new NotImplementedException();
-        return Ok();
+        var query = new GetNoteQuery(noteId);
+        var result = await _sender.Send(query);
+        var response = new GetNoteResponse(result.Note.Id, result.Note.Content);
+        
+        return Ok(response);
     }
     
     [HttpPost]
