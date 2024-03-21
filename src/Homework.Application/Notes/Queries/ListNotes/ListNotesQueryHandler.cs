@@ -14,7 +14,15 @@ public class ListNotesQueryHandler : IRequestHandler<ListNotesQuery, ListNotesQu
 
     public async Task<ListNotesQueryResult> Handle(ListNotesQuery request, CancellationToken cancellationToken)
     {
-        var notes = await _notesRepository.ListAsync();
-        return new ListNotesQueryResult(notes);
+        var (notes, totalCount) = await _notesRepository.GetPageAsync(request.PageNumber, request.PageSize);
+        
+        return new ListNotesQueryResult()
+        {
+            Items = notes,
+            PageSize = request.PageSize,
+            CurrentPageNumber= request.PageNumber,
+            TotalEntries = totalCount,
+            MaxPageNumber = (int)Math.Ceiling((double)totalCount / request.PageSize)
+        };
     }
 }

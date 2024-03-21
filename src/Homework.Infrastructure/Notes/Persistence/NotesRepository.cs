@@ -19,9 +19,15 @@ public class NotesRepository : INotesRepository
         return _db.Notes.FirstOrDefaultAsync(note => note.Id == id);
     }
 
-    public async Task<List<Note>> ListAsync()
+    public async Task<(List<Note> Notes, int totalCount)> GetPageAsync(int pageNumber, int pageSize)
     {
-        return await _db.Notes.ToListAsync();
+        var count = await _db.Notes.CountAsync();
+        var notes = await _db.Notes
+            .Skip(((pageNumber - 1) * pageSize))
+            .Take(pageSize)
+            .ToListAsync();
+        
+        return (notes, count);
     }
 
     public async Task AddAsync(Note note)

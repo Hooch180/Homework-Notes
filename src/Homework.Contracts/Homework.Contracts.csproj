@@ -7,8 +7,4 @@
         <RootNamespace>Notes.Contracts</RootNamespace>
     </PropertyGroup>
 
-    <ItemGroup>
-      <Folder Include="Common\" />
-    </ItemGroup>
-
 </Project>

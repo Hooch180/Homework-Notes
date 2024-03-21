@@ -1,3 +1,5 @@
-﻿namespace Notes.Contracts.Notes;
+﻿using Notes.Contracts.Common;
 
-public record ListNotesResponse(ICollection<Note> Notes);
+namespace Notes.Contracts.Notes;
+
+public record ListNotesResponse() : PaginatedResponse<Note>;

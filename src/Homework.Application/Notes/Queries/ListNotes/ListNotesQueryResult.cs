@@ -1,5 +1,6 @@
-﻿using Notes.Domain.Notes;
+﻿using Homework.Application.Common.BaseResponses;
+using Notes.Domain.Notes;
 
 namespace Homework.Application.Notes.Queries.ListNotes;
 
-public record ListNotesQueryResult(List<Note> Notes);
+public record ListNotesQueryResult() : PaginatedResponse<Note>;

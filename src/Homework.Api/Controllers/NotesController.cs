@@ -20,17 +20,26 @@ public class NotesController : ControllerBase
         _sender = sender;
     }
     
-    [HttpGet]
+    [HttpGet("pageNumber:int/pageSize:int")]
     [ProducesResponseType<ListNotesResponse>(StatusCodes.Status200OK)]
-    public async Task<IActionResult> ListNotes()
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> ListNotes(int pageNumber, int pageSize)
     {
-        var query = new ListNotesQuery();
+        var query = new ListNotesQuery(pageNumber, pageSize);
         var result = await _sender.Send(query);
         var notesDto = result
-            .Notes
+            .Items
             .Select(note => new Note(note.Id, note.Content))
             .ToList();
-        var response = new ListNotesResponse(notesDto);
+        
+        var response = new ListNotesResponse()
+        {
+            Items = notesDto,
+            PageSize = result.PageSize,
+            CurrentPageNumber = result.CurrentPageNumber,
+            TotalEntries = result.TotalEntries,
+            MaxPageNumber = result.MaxPageNumber
+        };
         
         return Ok(response);
     }
