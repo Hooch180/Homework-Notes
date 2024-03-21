@@ -1,6 +1,7 @@
 # Prerequisites:  
-.NET 8.0 installed (if not present, install and don't forget to restart your computer):  
+- .NET 8.0 installed (if not present, install and don't forget to restart your computer):  
 https://dotnet.microsoft.com/en-us/download/dotnet/8.0
+- Internet access during build in order for NuGet package manager to restore used NuGet packages
 
 # How to run:  
 1. Open Windows Terminal and navigate to the directory with Homework.Api.csproj file (git-repo-location\src\Homework.Api\)  
