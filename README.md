@@ -24,6 +24,6 @@ Here is list of endpoints:
 - ```GET``` ```/notes/{pageNumber}/{pageSize}``` - Retrieves paginated list of notes
 
 # Notes
-- Unit tests were omitted so as not to spend an unnecessary amount of time on simple task.
+- Unit tests are not written for all cases and classes. What is written is for general idea on how I create them.
 - This project could be written as a small, one project with few files as "Minimal API", but I wanted to demonstrate an understanding of design patterns and software architecture.
 - If those were the only and closed requirements for simple service, I would instead write a small, easily maintainable project. No need to overcomplicate simple (and closed) projects.
