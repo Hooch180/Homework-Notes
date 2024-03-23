@@ -22,7 +22,7 @@ public class CommandValidationExceptionHandler : IExceptionHandler
         }
 
         ex.Demystify();
-        _logger.LogError(ex, "Exception occurred: {Message}", ex.Message);
+        _logger.LogError(ex, "CommandValidationException occurred: {Message}", ex.Message);
         
         var problemDetails = new ProblemDetails
         {
@@ -32,6 +32,8 @@ public class CommandValidationExceptionHandler : IExceptionHandler
         
         problemDetails.Extensions.Add("code", ex.Code);
         problemDetails.Extensions.Add("validationErrors", ex.Errors);
+        
+        httpContext.Response.StatusCode = problemDetails.Status.Value;
         
         await httpContext.Response.WriteAsJsonAsync(problemDetails, cancellationToken);
         return true;

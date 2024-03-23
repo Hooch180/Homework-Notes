@@ -22,7 +22,7 @@ public class NotFoundExceptionHandler : IExceptionHandler
         }
 
         ex.Demystify();
-        _logger.LogError(ex, "Exception occurred: {Message}", ex.Message);
+        _logger.LogError(ex, "NotFoundException occurred: {Message}", ex.Message);
         
         var problemDetails = new ProblemDetails
         {
@@ -31,6 +31,8 @@ public class NotFoundExceptionHandler : IExceptionHandler
         };
         
         problemDetails.Extensions.Add("code", ex.Code);
+        
+        httpContext.Response.StatusCode = problemDetails.Status.Value;
         
         await httpContext.Response.WriteAsJsonAsync(problemDetails, cancellationToken);
         return true;

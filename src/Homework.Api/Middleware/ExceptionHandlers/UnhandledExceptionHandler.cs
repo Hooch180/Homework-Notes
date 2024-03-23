@@ -24,6 +24,8 @@ public class UnhandledExceptionHandler : IExceptionHandler
             Type = "UnknownError"
         };
         
+        httpContext.Response.StatusCode = problemDetails.Status.Value;
+        
         await httpContext.Response.WriteAsJsonAsync(problemDetails, cancellationToken);
         return true;
     }

@@ -1,8 +1,6 @@
-using Notes.Api.Middleware.ExceptionHandlers;
+namespace Notes.Api.Middleware.ExceptionHandlers;
 
-namespace Notes.Api;
-
-public static class ExceptionHandlers
+public static class ExceptionHandlersExtensions
 {
     public static IServiceProvider AddExceptionHandlers(this IServiceCollection services)
     {
