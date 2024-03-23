@@ -28,4 +28,4 @@ DELETE {{baseUrl}}/notes/{{noteId}}
 GET {{baseUrl}}/notes/{{noteId}}
 
 ### List Notes
-GET {{baseUrl}}/notes/1/10
+GET {{baseUrl}}/notes/page/1/pageSize/10

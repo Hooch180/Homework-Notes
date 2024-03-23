@@ -20,7 +20,7 @@ public class NotesController : ControllerBase
         _sender = sender;
     }
     
-    [HttpGet("{pageNumber:int}/{pageSize:int}")]
+    [HttpGet("page/{pageNumber:int}/pageSize/{pageSize:int}")]
     [ProducesResponseType<ListNotesResponse>(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> ListNotes(int pageNumber, int pageSize)
